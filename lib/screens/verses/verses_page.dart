@@ -12,7 +12,7 @@ class VersesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrangeAccent,
+      backgroundColor: Colors.deepOrangeAccent.shade100,
       appBar: AppBarMethod(context: context, isButton: true, isTitle: false),
       body: Consumer<HomeProvider>(
         builder: (context, provider, child) => Padding(
@@ -20,7 +20,7 @@ class VersesPage extends StatelessWidget {
           child: ListView.builder(
             itemCount: provider.chapterList[selectedChapterIndex].verses!.length,
             itemBuilder: (context, index) => Card(
-              color: Colors.deepOrange,
+              color: Colors.deepOrange.shade400,
               child: ListTile(
                 leading: Text(
                   provider.chapterList[selectedChapterIndex].verses![index].VerseNumber

@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrangeAccent,
+      backgroundColor: Colors.deepOrangeAccent.shade100,
       appBar: AppBarMethod(context: context,isButton: false,isTitle: true),
       body: Consumer<HomeProvider>(
         builder: (context, provider, child) => Padding(
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
           child: ListView.builder(
             itemCount: provider.chapterList.length,
             itemBuilder: (context, index) => Card(
-              color: Colors.deepOrange,
+              color: Colors.deepOrange.shade400,
               child: ListTile(
                 leading: Text(
                   provider.chapterList[index].Chapter.toString(),
