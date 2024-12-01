@@ -55,7 +55,7 @@ AppBar AppBarMethod({
     ],
     title: (isTitle)
         ? const Text(
-            'Bhagwat Geets',
+            'Bhagavad  Geeta',
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
