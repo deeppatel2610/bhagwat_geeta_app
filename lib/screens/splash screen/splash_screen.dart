@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer.periodic(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
       (timer) {
         Navigator.of(context).pushReplacementNamed("/home");
       },

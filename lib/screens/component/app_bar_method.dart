@@ -1,15 +1,14 @@
 import 'package:bhagwat_geeta_app/screens/component/title_app_bar_widhet.dart';
-import 'package:bhagwat_geeta_app/utils/all_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/home_provider.dart';
 
-AppBar AppBarMethod({
-  required BuildContext context,
-  required bool isButton,
-  required bool isTitle,
-}) {
+AppBar AppBarMethod(
+    {required BuildContext context,
+    required bool isButton,
+    required bool isTitle,
+    required bool isDropdownButton}) {
   return AppBar(
     leading: (isButton)
         ? IconButton(
@@ -20,39 +19,42 @@ AppBar AppBarMethod({
           )
         : null,
     backgroundColor: Colors.deepOrange.shade500,
-    actions: [
-      DropdownButton(
-        items: const [
-          DropdownMenuItem(
-            value: 'Sanskrit',
-            child: Text('Sanskrit'),
-          ),
-          DropdownMenuItem(
-            value: 'Hindi',
-            child: Text('Hindi'),
-          ),
-          DropdownMenuItem(
-            value: 'Gujarati',
-            child: Text('Gujarati'),
-          ),
-          DropdownMenuItem(
-            value: 'English',
-            child: Text('English'),
-          ),
-        ],
-        icon: const Icon(
-          Icons.keyboard_arrow_down_outlined,
-          color: Colors.black,
-        ),
-        value: Provider.of<HomeProvider>(context, listen: true).languages,
-        onChanged: (value) {
-          Provider.of<HomeProvider>(context, listen: false).dropdown(value!);
-        },
-      ),
-      const SizedBox(
-        width: 20,
-      )
-    ],
+    actions: (isDropdownButton)
+        ? [
+            DropdownButton(
+              items: const [
+                DropdownMenuItem(
+                  value: 'Sanskrit',
+                  child: Text('Sanskrit'),
+                ),
+                DropdownMenuItem(
+                  value: 'Hindi',
+                  child: Text('Hindi'),
+                ),
+                DropdownMenuItem(
+                  value: 'Gujarati',
+                  child: Text('Gujarati'),
+                ),
+                DropdownMenuItem(
+                  value: 'English',
+                  child: Text('English'),
+                ),
+              ],
+              icon: const Icon(
+                Icons.keyboard_arrow_down_outlined,
+                color: Colors.black,
+              ),
+              value: Provider.of<HomeProvider>(context, listen: true).languages,
+              onChanged: (value) {
+                Provider.of<HomeProvider>(context, listen: false)
+                    .dropdown(value!);
+              },
+            ),
+            const SizedBox(
+              width: 20,
+            )
+          ]
+        : [],
     title: (isTitle)
         ? const Text(
             'Bhagavad  Geeta',

@@ -13,7 +13,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepOrangeAccent.shade100,
-      appBar: AppBarMethod(context: context,isButton: false,isTitle: true),
+      appBar: AppBarMethod(
+        context: context,
+        isButton: false,
+        isTitle: true,
+        isDropdownButton: true,
+      ),
       body: Consumer<HomeProvider>(
         builder: (context, provider, child) => Padding(
           padding: const EdgeInsets.all(8.0),

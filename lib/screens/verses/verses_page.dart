@@ -13,17 +13,23 @@ class VersesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepOrangeAccent.shade100,
-      appBar: AppBarMethod(context: context, isButton: true, isTitle: false),
+      appBar: AppBarMethod(
+          context: context,
+          isButton: true,
+          isTitle: false,
+          isDropdownButton: true),
       body: Consumer<HomeProvider>(
         builder: (context, provider, child) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView.builder(
-            itemCount: provider.chapterList[selectedChapterIndex].verses!.length,
+            itemCount:
+                provider.chapterList[selectedChapterIndex].verses!.length,
             itemBuilder: (context, index) => Card(
               color: Colors.deepOrange.shade400,
               child: ListTile(
                 leading: Text(
-                  provider.chapterList[selectedChapterIndex].verses![index].VerseNumber
+                  provider.chapterList[selectedChapterIndex].verses![index]
+                      .VerseNumber
                       .toString(),
                   style: const TextStyle(
                     fontSize: 17,
@@ -32,7 +38,10 @@ class VersesPage extends StatelessWidget {
                 ),
                 title: TitleVersesWidhet(index: index),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    selectedVerseIndex = index;
+                    Navigator.of(context).pushNamed("/verse");
+                  },
                   icon: const Icon(
                     Icons.arrow_forward_ios_outlined,
                     color: Colors.black,
